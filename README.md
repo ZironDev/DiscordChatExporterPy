@@ -19,13 +19,13 @@
     <br />
     <a href="https://discord.gg/oldmonk">Join Discord</a>
     ·
-    <a href="https://github.com/mahtoid/DiscordChatExporterPy/issues/new?assignees=&labels=bug&template=bug-report.yml">Report Bug</a>
+    <a href="https://github.com/ZironDev/DiscordChatExporterPy/issues/new?assignees=&labels=bug&template=bug-report.yml">Report Bug</a>
     ·
     <a href="ord.py (or fork) bots!
     <br />
     <a href="https://discord.mahto.id/">Join Discord</a>
     ·
-    <a href="https://github.com/mahtoid/DiscordChatExporterPy/issues/new?assignees=&labels=enhancement&template=feature-request.yml">Request Feature</a>
+    <a href="https://github.com/ZironDev/DiscordChatExporterPy/issues/new?assignees=&labels=enhancement&template=feature-request.yml">Request Feature</a>
   </p>
 </div>
 
