@@ -1,10 +1,6 @@
 <div align="center">
 
-[![Version][pypi-version]][pypi-url]
 [![Language][language-dom]][github-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 [![GPL License][license-shield]][license-url]
 
 
