@@ -47,7 +47,7 @@ class Attachment:
 
         self.attachments = await fill_out(self.guild, audio_attachment, [
             ("ATTACH_ICON", file_icon, PARSE_MODE_NONE),
-            ("ATTACH_URL", self.attachments.url, PARSE_MODE_NONE),
+            ("ATTACH_URL", self.attachments.proxy_url, PARSE_MODE_NONE),
             ("ATTACH_BYTES", str(file_size), PARSE_MODE_NONE),
             ("ATTACH_AUDIO", self.attachments.proxy_url, PARSE_MODE_NONE),
             ("ATTACH_FILE", str(self.attachments.filename), PARSE_MODE_NONE)
@@ -60,7 +60,7 @@ class Attachment:
 
         self.attachments = await fill_out(self.guild, msg_attachment, [
             ("ATTACH_ICON", file_icon, PARSE_MODE_NONE),
-            ("ATTACH_URL", self.attachments.url, PARSE_MODE_NONE),
+            ("ATTACH_URL", self.attachments.proxy_url, PARSE_MODE_NONE),
             ("ATTACH_BYTES", str(file_size), PARSE_MODE_NONE),
             ("ATTACH_FILE", str(self.attachments.filename), PARSE_MODE_NONE)
         ])
@@ -88,16 +88,19 @@ class Attachment:
             "arj", "pkg", "z"
         )
 
-        extension = self.attachments.url.rsplit('.', 1)[1]
-        if extension in acrobat_types:
-            return DiscordUtils.file_attachment_acrobat
-        elif extension in webcode_types:
-            return DiscordUtils.file_attachment_webcode
-        elif extension in code_types:
-            return DiscordUtils.file_attachment_code
-        elif extension in document_types:
-            return DiscordUtils.file_attachment_document
-        elif extension in archive_types:
-            return DiscordUtils.file_attachment_archive
-        else:
-            return DiscordUtils.file_attachment_unknown
+        for tmp in [self.attachments.proxy_url, self.attachments.filename]:
+            if not tmp:
+                continue
+            extension = tmp.rsplit('.', 1)[-1]
+            if extension in acrobat_types:
+                return DiscordUtils.file_attachment_acrobat
+            elif extension in webcode_types:
+                return DiscordUtils.file_attachment_webcode
+            elif extension in code_types:
+                return DiscordUtils.file_attachment_code
+            elif extension in document_types:
+                return DiscordUtils.file_attachment_document
+            elif extension in archive_types:
+                return DiscordUtils.file_attachment_archive
+        
+        return DiscordUtils.file_attachment_unknown
